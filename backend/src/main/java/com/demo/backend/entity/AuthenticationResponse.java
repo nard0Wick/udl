@@ -5,8 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class AuthenticationResponse {
     private String token;
+
+    public AuthenticationResponse(){}
+
+    public AuthenticationResponse(String token) {
+        this.token = token;
+    }
 }

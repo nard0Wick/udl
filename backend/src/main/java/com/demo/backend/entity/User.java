@@ -19,7 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-@Builder
 @Table(name = "users")
 public class User implements UserDetails{
     @Id
@@ -30,10 +29,17 @@ public class User implements UserDetails{
     private String firstName;
     private String lastName;
     private String campus;
-
-    //role
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public User(String firstName, String lastName, String email, String password, String campus, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.campus = campus;
+        this.role = role;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
